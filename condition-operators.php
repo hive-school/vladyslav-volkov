@@ -12,7 +12,7 @@ if ('12' == $number) {
 }
 
 switch ($number) {
-    case '12';
+    case '12':
         echo 12;
         break;
     case 1234:
