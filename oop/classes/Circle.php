@@ -8,20 +8,12 @@
  * Class Circle
  * @package bionic
  */
-class Circle
+class Circle extends AbstractCircle
 {
     /**
      * @var string
      */
-    private $material;
-    /**
-     * @var int
-     */
-    private $length;
-    /**
-     * @var float
-     */
-    private $radius;
+    private $material = 'metal';
     /**
      * @var string
      */
@@ -38,13 +30,13 @@ class Circle
      */
     public function __construct($color, $material, $radius)
     {
+        // partial override
+        parent::__construct($radius);
         $this->map = array(
             '#000000' => 'black'
         );
         $this->color = $color;
         $this->material = $material;
-        $this->radius = $radius;
-        $this->length = 2 * 3.14 * $radius;
     }
 
     /**
@@ -63,6 +55,7 @@ class Circle
      */
     public function setRadius($radius)
     {
+        // total override
         $this->radius = $radius;
         $this->approximation();
         $this->recalculateLength();
@@ -70,13 +63,6 @@ class Circle
 
     }
 
-    /**
-     * @return void
-     */
-    private function recalculateLength()
-    {
-        $this->length = $this->radius * 2 * 3.14;
-    }
 
     /**
      * @return void
@@ -85,14 +71,6 @@ class Circle
     {
         $this->radius *= 1.1;
 //        return $radius * 1.1;
-    }
-
-    /**
-     * @return float
-     */
-    public function getRadius()
-    {
-        return $this->radius;
     }
 
     /**
@@ -109,6 +87,21 @@ class Circle
     public function setColor($color)
     {
         $this->color = $color;
+    }
+
+    /**
+     * @return $this
+     */
+    public function rotate()
+    {
+        echo 'Go for ' . $this->length . ' distance per one rotation.' . PHP_EOL;
+        $this->distance += $this->length;
+        return $this;
+    }
+
+    public function getDistance()
+    {
+        return $this->distance;
     }
 
 
