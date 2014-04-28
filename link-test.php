@@ -28,6 +28,9 @@ array_walk($rawData, 'trim');
 foreach($array as &$value) {
     $value *= 2; // $value = $value * 2;
 }
-
+// Better unset reference variable at this point
+// in order do not to accidentally change 
+// the last value of the array below in code 
+unset($value);
 
 
