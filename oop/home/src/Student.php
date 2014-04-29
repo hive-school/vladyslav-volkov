@@ -6,7 +6,7 @@
  * Date: 4/29/14
  * Time: 8:28 AM
  */
-class Student
+class Student implements LocateInterface
 {
     private $name;
 
@@ -23,6 +23,10 @@ class Student
         return $this->name;
     }
 
+    public function locate()
+    {
+        return new Point();
+    }
 
 
 } 

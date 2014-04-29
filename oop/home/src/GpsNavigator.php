@@ -1,11 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: bionic
- * Date: 4/29/14
- * Time: 9:35 AM
- */
 
-class GpsNavigator {
+class GpsNavigator
+{
+    use ObjectInformationTrait;
 
+    public function show(LocateInterface $object)
+    {
+        return $object->locate();
+    }
+
+    public function fill(AreaInterface $area)
+    {
+        return $area->getBackground();
+    }
 } 

@@ -1,5 +1,6 @@
 <?php
 
-class LocateInterface {
+interface LocateInterface
+{
     public function locate();
 } 

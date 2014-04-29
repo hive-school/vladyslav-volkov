@@ -1,11 +1,19 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: bionic
- * Date: 4/29/14
- * Time: 9:42 AM
- */
 
-class Ocean {
+class Ocean implements LocateInterface, AreaInterface
+{
+    use AreaTrait;
+    use SquareTrait;
 
+    public function getSquare()
+    {
+        return $this->size * $this->size * $this->size;
+    }
+
+    private $area = 'water_sprite.jpg';
+
+    public function locate()
+    {
+        return $this->area * $this->area;
+    }
 } 

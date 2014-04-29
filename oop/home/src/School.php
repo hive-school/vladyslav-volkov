@@ -6,7 +6,7 @@
  * Date: 4/29/14
  * Time: 8:26 AM
  */
-class School extends Building
+class School extends Building implements LocateInterface
 {
     private $students;
     private $lecturers = array(
@@ -30,4 +30,11 @@ class School extends Building
     {
         return $this->students;
     }
+
+    public function locate()
+    {
+        return 'school.jpg';
+    }
+
+
 } 

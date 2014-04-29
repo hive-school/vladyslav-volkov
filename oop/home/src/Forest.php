@@ -1,11 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: bionic
- * Date: 4/29/14
- * Time: 9:44 AM
- */
 
-class Forest {
+class Forest implements LocateInterface, AreaInterface
+{
+    use AreaTrait;
 
+    public function locate()
+    {
+        return array_merge(array('apple', 'orange'));
+    }
 } 

@@ -14,3 +14,9 @@ $school->enterToSchool($student);
 foreach ($school->getStudentsInDaHouse() as $studentInDaHouse) {
     echo $studentInDaHouse->getName();
 }
+
+
+
+$gps = new GpsNavigator();
+$forest = new Forest();
+var_dump($gps->show($forest));
