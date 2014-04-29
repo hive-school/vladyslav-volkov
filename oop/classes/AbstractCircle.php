@@ -18,7 +18,6 @@ abstract class AbstractCircle
      */
     protected $distance = 0;
 
-
     /**
      * @param float $radius
      */

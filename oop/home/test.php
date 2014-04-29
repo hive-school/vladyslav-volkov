@@ -6,6 +6,7 @@ spl_autoload_register(
         require_once(str_replace("\\", "/", $className) . '.php');
     }
 );
+
 $school = new School();
 $windows = new Building\Window();
 $student = new Student('Vlad');

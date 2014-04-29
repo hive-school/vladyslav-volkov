@@ -9,6 +9,9 @@
 class School extends Building
 {
     private $students;
+    private $lecturers = array(
+        'Vlad', 'Viktor'
+    );
 
     public function __construct()
     {
