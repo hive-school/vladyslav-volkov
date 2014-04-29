@@ -6,7 +6,6 @@ $frontCircle = new Circle('#000000', 'metal', 12.5);
 $frontCircle->setRadius(10);
 $frontCircle->rotate()->rotate()->rotate();
 
-
 echo $frontCircle->getDistance() . ' kms' . PHP_EOL;
 
 $anotherFrontCircle = new Circle('#000000', 'metal', 12.5);
