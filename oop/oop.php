@@ -1,6 +1,8 @@
 <?php
-include 'classes/AbstractCircle.php';
-include 'classes/Circle.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
+
+include '../vendor/autoload.php';
 
 $frontCircle = new Circle('#000000', 'metal', 12.5);
 $frontCircle->setRadius(10);
