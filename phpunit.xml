@@ -9,7 +9,7 @@
          processIsolation="false"
          stopOnFailure="false"
          syntaxCheck="false"
-         bootstrap="index.php"
+         bootstrap="bootstrap.php"
         >
     <php>
         <ini name="intl.default_locale" value="en"/>
@@ -19,7 +19,7 @@
 
     <testsuites>
         <testsuite name="Bionic University Test Suite">
-            <directory>./src/Lesson/Tests/</directory>
+            <directory>./src/BionicUniversity/VladyslavVolkov/*/Tests</directory>
         </testsuite>
     </testsuites>
 
