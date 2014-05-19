@@ -11,4 +11,4 @@ interface BackgroundInterface
      * @return mixed
      */
     public function getBackground();
-} 
+}

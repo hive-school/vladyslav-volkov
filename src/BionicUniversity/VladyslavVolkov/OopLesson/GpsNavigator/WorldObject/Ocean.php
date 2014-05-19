@@ -13,5 +13,4 @@ class Ocean implements BackgroundInterface
         return 'ocean.jpg';
     }
 
-
-} 
+}

@@ -1,7 +1,7 @@
 <?php
-namespace BionicUniversity\VladyslavVolkov\OopLesson\House;
+namespace BionicUniversity\VladyslavVolkov\OopLesson\House\Building;
 
 class Window
 {
 
-} 
+}

@@ -8,7 +8,6 @@
 
 namespace BionicUniversity\VladyslavVolkov\OopLesson\GpsNavigator\Area;
 
-
 use BionicUniversity\VladyslavVolkov\OopLesson\GpsNavigator\AbstractArea;
 
 /**
@@ -25,21 +24,21 @@ class SquareArea extends AbstractArea
 
     /**
      * @param float $size
-     * @return $this
+     *                    @return $this
      */
     public function setSize($size)
     {
         $this->size = $size;
+
         return $this;
     }
-
 
     /**
      * @return float
      */
     public function getAreaSize()
     {
-        return (float)$this->size * $this->size;
+        return (float) $this->size * $this->size;
     }
 
 }

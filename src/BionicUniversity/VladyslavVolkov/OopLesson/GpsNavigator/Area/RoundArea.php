@@ -8,7 +8,6 @@
 
 namespace BionicUniversity\VladyslavVolkov\OopLesson\GpsNavigator\Area;
 
-
 use BionicUniversity\VladyslavVolkov\OopLesson\GpsNavigator\AbstractArea;
 
 /**
@@ -33,7 +32,6 @@ class RoundArea extends AbstractArea
     {
         $this->radius = $radius;
     }
-
 
     /**
      * @return float

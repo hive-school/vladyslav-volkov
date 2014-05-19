@@ -3,7 +3,6 @@ namespace BionicUniversity\VladyslavVolkov\OopLesson\House;
 
 use BionicUniversity\VladyslavVolkov\OopLesson\GpsNavigator\Address;
 use BionicUniversity\VladyslavVolkov\OopLesson\GpsNavigator\LocateInterface;
-use BionicUniversity\VladyslavVolkov\OopLesson\GpsNavigator\ObjectInformationTrait;
 
 /**
  * Class Building

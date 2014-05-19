@@ -25,5 +25,4 @@ abstract class AbstractWorldObject implements LocateInterface, BackgroundInterfa
         return "This object accommodates area of  {$this->area->getAreaSize()} with {$this->getBackground()} color";
     }
 
-
-} 
+}

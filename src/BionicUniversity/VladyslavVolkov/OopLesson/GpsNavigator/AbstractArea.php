@@ -8,7 +8,6 @@
 
 namespace BionicUniversity\VladyslavVolkov\OopLesson\GpsNavigator;
 
-
 /**
  * Class AbstractArea
  * @package BionicUniversity\VladyslavVolkov\OopLesson\GpsNavigator

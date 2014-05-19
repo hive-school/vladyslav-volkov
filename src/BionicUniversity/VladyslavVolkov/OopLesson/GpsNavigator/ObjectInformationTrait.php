@@ -41,4 +41,4 @@ trait ObjectInformationTrait
     {
         return $this->getReflection()->getConstants();
     }
-} 
+}

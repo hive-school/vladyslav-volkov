@@ -1,7 +1,6 @@
 <?php
 namespace BionicUniversity\VladyslavVolkov\TestsLesson\Tests;
 
-
 use BionicUniversity\VladyslavVolkov\TestsLesson\Sample\ClassSample;
 
 class ClassSampleTest extends \PHPUnit_Framework_TestCase

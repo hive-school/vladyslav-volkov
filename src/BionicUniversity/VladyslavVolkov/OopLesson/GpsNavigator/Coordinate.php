@@ -1,7 +1,6 @@
 <?php
 namespace BionicUniversity\VladyslavVolkov\OopLesson\GpsNavigator;
 
-
 /**
  * Class Coordinate
  * @package BionicUniversity\VladyslavVolkov\OopLesson\GpsNavigator
@@ -18,12 +17,11 @@ class Coordinate
      */
     private $longitude;
 
-    function __construct($latitude, $longitude)
+    public function __construct($latitude, $longitude)
     {
         $this->latitude = $latitude;
         $this->longitude = $longitude;
     }
-
 
     /**
      * @return mixed

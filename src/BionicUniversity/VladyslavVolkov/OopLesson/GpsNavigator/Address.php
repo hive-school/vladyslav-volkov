@@ -27,46 +27,49 @@ class Address
 
     /**
      * @param mixed $buildingNumber
-     * @return $this
+     *                              @return $this
      */
     public function setBuildingNumber($buildingNumber)
     {
         $this->buildingNumber = $buildingNumber;
+
         return $this;
 
     }
 
     /**
      * @param mixed $city
-     * @return $this
+     *                    @return $this
      */
     public function setCity($city)
     {
         $this->city = $city;
+
         return $this;
 
     }
 
     /**
      * @param mixed $country
-     * @return $this
+     *                       @return $this
      */
     public function setCountry($country)
     {
         $this->country = $country;
+
         return $this;
     }
 
     /**
      * @param mixed $street
-     * @return $this
+     *                      @return $this
      */
     public function setStreet($street)
     {
         $this->street = $street;
+
         return $this;
     }
-
 
     /**
      * @return string
@@ -75,4 +78,4 @@ class Address
     {
         return "Object located by address {$this->country}, {$this->city}, {$this->street}, {$this->buildingNumber}";
     }
-} 
+}

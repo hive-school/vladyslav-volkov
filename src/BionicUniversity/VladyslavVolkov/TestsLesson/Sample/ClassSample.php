@@ -29,7 +29,6 @@ class ClassSample
     private $age;
     private $birthDate;
 
-
     /**
      * @return mixed
      */
@@ -73,6 +72,7 @@ class ClassSample
         } else {
             $message = $this->getUsualDayMessage();
         }
+
         return $message;
     }
 
@@ -85,6 +85,7 @@ class ClassSample
         if ('Vlad' === $this->name) {
             throw new \Exception('Unfortunately...');
         }
+
         return self::BIRTH_DAY_MESSAGE . ', ' . $this->name;
     }
 
@@ -95,9 +96,7 @@ class ClassSample
 
     private function isTodayBirthDate()
     {
-
         return (date('m') === $this->birthDate);
     }
-
 
 }

@@ -1,7 +1,6 @@
 <?php
 namespace BionicUniversity\VladyslavVolkov\Exam;
 
-
 abstract class AbstractResizer
 {
     /**
@@ -9,4 +8,4 @@ abstract class AbstractResizer
      * @return mixed
      */
     abstract public function thumbnail();
-} 
+}

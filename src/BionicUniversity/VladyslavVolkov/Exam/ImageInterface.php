@@ -1,7 +1,6 @@
 <?php
 namespace BionicUniversity\VladyslavVolkov\Exam;
 
-
 interface ImageInterface
 {
 

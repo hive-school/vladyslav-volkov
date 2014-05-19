@@ -7,4 +7,4 @@ interface LocateInterface
      * @return string
      */
     public function getLocation();
-} 
+}
