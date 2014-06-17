@@ -1,0 +1,21 @@
+---
+- name: Common ansible playbook
+  hosts: test-dev
+  sudo: yes
+
+  vars:
+      nginx_port: 80
+      nginx_document_root: /var/www/test
+      nginx_server_name: test.localhost
+      nginx_index_file: index.php
+      nginx_workers: 4
+      nginx_fastcgi: unix:/var/run/php5-fpm.sock
+
+  roles:
+    - common
+    - php-hhvm
+    - php-extensions
+    - composer
+    - nginx
+    - mysql
+    - js

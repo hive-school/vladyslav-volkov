@@ -1,0 +1,9 @@
+---
+- name: upgrade the distro
+  apt: update_cache=yes upgrade=yes cache_valid_time=3600
+
+- name: install curl
+  apt: name=curl state=installed
+
+- name: install git
+  apt: name=git state=installed

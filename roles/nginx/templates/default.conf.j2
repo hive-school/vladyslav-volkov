@@ -1,0 +1,33 @@
+server {
+    listen {{ nginx_port }};
+
+    server_name {{ nginx_server_name }};
+    root {{ nginx_document_root }};
+
+    error_log /var/log/nginx/{{ nginx_server_name }}.error.log;
+    access_log /var/log/nginx/{{ nginx_server_name}}.access.log;
+
+    index {{ nginx_index_file }};
+
+    location @rewritephp {
+        rewrite ^(.*)$ /{{ nginx_index_file }}/$1 last;
+    }
+
+    location / {
+        try_files $uri @rewritephp;
+    }
+
+    location ~* \.(jpg|jpeg|gif|png|css|js|ico|xml)$ {
+        access_log        off;
+        log_not_found     off;
+        expires           360d;
+    }
+
+    location ~ ^/{{ nginx_index_file }}(/|$) {
+        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        include fastcgi_params;
+        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param  HTTPS off;
+    }
+}

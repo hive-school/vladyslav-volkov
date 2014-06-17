@@ -1,0 +1,13 @@
+---
+- name: install packages
+  git: repo=git@github.com:h4cc/phpqatools.git dest=/usr/share/phptools accept_hostkey=yes update=yes
+
+
+- name: create symlinks
+  shell: ln -s /usr/share/phptools/bin/{item} /usr/local/bin/{item}
+  with_items:
+    - phploc
+    - phpcpd
+    - phpunit
+    - phpmd
+    - phpcs

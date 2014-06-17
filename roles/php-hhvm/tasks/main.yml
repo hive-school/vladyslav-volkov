@@ -1,0 +1,17 @@
+---
+- name: install hhvm gpg key
+  apt_key: url=http://dl.hhvm.com/conf/hhvm.gpg.key state=present
+
+- name: add hhvm deb repository
+  shell: echo deb http://dl.hhvm.com/ubuntu trusty main | sudo tee /etc/apt/sources.list.d/hhvm.list
+
+- name: install hhvm packages
+  apt: pkg={{ item }} state=latest update_cache=yes force=yes
+  with_items:
+      - hhvm
+  notify: restart hhvm
+
+- name: check hhvm path
+  shell: which hhvm
+  register: current_hhvm
+  ignore_errors: True

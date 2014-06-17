@@ -1,0 +1,9 @@
+---
+- name: install npm
+  apt: name={{ item }} state=installed
+  with_items:
+    - nodejs
+    - npm
+
+- name: install gulp
+  command: npm install gulp -g

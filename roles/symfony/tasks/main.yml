@@ -1,0 +1,3 @@
+---
+- name: update schema database
+  command: php /var/www/enadvance/app/console doctrine:schema:update --force
