@@ -15,8 +15,6 @@ namespace BionicUniversity\VladyslavVolkov\OopLesson\GpsNavigator;
 abstract class AbstractArea
 {
 
-    private $unusedProperty;
-
     /**
      * @return mixed
      */
