@@ -34,6 +34,49 @@ class Comment
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
+    /**
+     * @var Post
+     * @ORM\ManyToOne(targetEntity="BionicUniversity\Bundle\BlogBundle\Entity\Post", inversedBy="comments", fetch="EAGER")
+     */
+    private $post;
+    /**
+     * @var User
+     * @ORM\ManyToOne(targetEntity="BionicUniversity\Bundle\BlogBundle\Entity\User", inversedBy="comments")
+     */
+    private $user;
+
+    /**
+     * @return Post
+     */
+    public function getPost()
+    {
+        return $this->post;
+    }
+
+    /**
+     * @param Post $post
+     */
+    public function setPost($post)
+    {
+        $this->post = $post;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
 
 
     /**

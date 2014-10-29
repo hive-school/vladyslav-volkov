@@ -2,6 +2,7 @@
 
 namespace BionicUniversity\Bundle\BlogBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -34,7 +35,67 @@ class Post
      * @ORM\Column(type="text")
      */
     private $text;
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="BionicUniversity\Bundle\BlogBundle\Entity\Comment", mappedBy="post", fetch="EAGER")
+     */
+    private $comments;
+    /**
+     * @var Category
+     * @ORM\ManyToOne(targetEntity="BionicUniversity\Bundle\BlogBundle\Entity\Category", inversedBy="posts")
+     */
+    private $category;
+    /**
+     * @var User
+     * @ORM\ManyToOne(targetEntity="BionicUniversity\Bundle\BlogBundle\Entity\User", inversedBy="posts")
+     */
+    private $user;
 
+    /**
+     * @return Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param Category $category
+     */
+    public function setCategory(Category $category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+    }
+
+    function __toString()
+    {
+        return $this->name;
+    }
+
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
 
     /**
      * Get id
