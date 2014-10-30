@@ -53,6 +53,10 @@ class PostController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            var_dump($this->get('image_resizer')->resize());
+            die;
+
+
             return $this->redirect($this->generateUrl('post_show', array('id' => $entity->getId())));
         }
 
@@ -92,7 +96,6 @@ class PostController extends Controller
     {
         $entity = new Post();
         $form   = $this->createCreateForm($entity);
-
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),
