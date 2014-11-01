@@ -2,6 +2,8 @@
 
 namespace BionicUniversity\Bundle\BlogBundle\Controller;
 
+use BionicUniversity\Bundle\BlogBundle\BionicUniversityBlogEvents;
+use BionicUniversity\Bundle\BlogBundle\Event\PostEvent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -44,6 +46,7 @@ class PostController extends Controller
      */
     public function createAction(Request $request)
     {
+        /** @var Post $entity */
         $entity = new Post();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -53,10 +56,9 @@ class PostController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            var_dump($this->get('image_resizer')->resize());
-            die;
+            $event = new PostEvent($entity);
 
-
+            $this->get('event_dispatcher')->dispatch(BionicUniversityBlogEvents::POST_CREATE, $event);
             return $this->redirect($this->generateUrl('post_show', array('id' => $entity->getId())));
         }
 

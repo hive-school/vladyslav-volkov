@@ -6,6 +6,12 @@ services:
         calls:
             - [setImageService, [@imagine, @filesystem] ]
 
+    post_subscriber:
+        class: BionicUniversity\Bundle\BlogBundle\EventSubscriber\PostSubscriber
+        arguments: [@security.context]
+        tags:
+            - {name: kernel.event_subscriber}
+
     imagine:
         public: false
         class: Imagine\Imagick\Imagine

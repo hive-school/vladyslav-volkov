@@ -1,6 +1,7 @@
 <?php
 namespace BionicUniversity\Bundle\BlogBundle\Resizer;
 use Imagine\Image\ImagineInterface;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
  * Created by PhpStorm.
@@ -8,7 +9,7 @@ use Imagine\Image\ImagineInterface;
  * Date: 10/30/14
  * Time: 7:38 PM
  */
-class ImageResizer implements ResizerInterface
+class ImageResizer implements ResizerInterface, EventSubscriberInterface
 {
 
     private $height;
