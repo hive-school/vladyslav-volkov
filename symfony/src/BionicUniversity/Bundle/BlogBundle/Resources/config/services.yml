@@ -10,7 +10,12 @@ services:
         class: BionicUniversity\Bundle\BlogBundle\EventSubscriber\PostSubscriber
         arguments: [@security.context]
         tags:
-            - {name: kernel.event_subscriber}
+            - {name: kernel.event_subscriber, event: post.create, method: onPostCreate}
+
+    post_listener:
+        class: BionicUniversity\Bundle\BlogBundle\EventListener\PostListener
+        tags:
+            - {name: doctrine.event_listener, event: prePersist, connection: default}
 
     imagine:
         public: false

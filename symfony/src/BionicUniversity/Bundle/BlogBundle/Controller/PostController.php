@@ -53,6 +53,7 @@ class PostController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            // call PostListener ;
             $em->persist($entity);
             $em->flush();
 

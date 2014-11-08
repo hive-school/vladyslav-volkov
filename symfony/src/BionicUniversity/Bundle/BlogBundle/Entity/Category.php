@@ -33,6 +33,27 @@ class Category
      * @ORM\OneToMany(targetEntity="BionicUniversity\Bundle\BlogBundle\Entity\Post", mappedBy="category")
      */
     private $posts;
+    /**
+     * @var Category
+     */
+    private $parent;
+    private $children;
+    private $path;
+    private $slug;
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function updateSlug(){
+        $this->slug = \Transliterator::create(1)->transliterate($this->name);
+    }
+
+    public function updatePath()
+    {
+        while (null === $this->parent) {
+            $this->path .= '/' . $this->parent->getPath();
+        }
+    }
 
     function __toString()
     {
@@ -49,12 +70,10 @@ class Category
     }
 
 
-
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -77,7 +96,7 @@ class Category
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {

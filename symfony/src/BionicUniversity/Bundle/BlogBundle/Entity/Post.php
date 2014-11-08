@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class Post
 {
@@ -50,6 +51,55 @@ class Post
      * @ORM\ManyToOne(targetEntity="BionicUniversity\Bundle\BlogBundle\Entity\User", inversedBy="posts")
      */
     private $user;
+    /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
+    /**
+     * @var
+     */
+    private $author;
+    private $commentsCount;
+
+    /**
+     * @return mixed
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * @param mixed $author
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+    }
+
+
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function setCreated()
+    {
+        $this->created = new \DateTime();
+    }
+
+    public function updateCommentsCounter(){
+        $this->commentsCount = $this->comments->count();
+
+    }
 
     /**
      * @return Category

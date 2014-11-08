@@ -29,7 +29,7 @@ class PostSubscriber implements EventSubscriberInterface
 
     public function onPostCreate(PostEvent $event)
     {
-        var_dump($this->securityContext->getToken()->getUser());
-        var_dump($event->getPost());die;
+//        var_dump($this->securityContext->getToken()->getUser());
+//        var_dump($event->getPost());die;
     }
 }
