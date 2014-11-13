@@ -1,5 +1,22 @@
 parameters:
 services:
+
+    abstract_notification:
+        class: BionicUniversity\Bundle\BlogBudle\Notification\AbstractNotification
+        calls:
+            - [setSecurityContext, [@security.context]]
+        abstract: true
+
+    email_notification:
+        class: BionicUniversity\Bundle\BlogBudle\Notification\EmailNotification
+        calls:
+            - [setMailer, [@mailer]]
+
+    html_email_notification:
+        class: BionicUniversity\Bundle\BlogBudle\Notification\HtmlEmailNotification
+        calls:
+            - [setTemplating, [@templating]]
+
     image_resizer:
         class: BionicUniversity\Bundle\BlogBundle\Resizer\ImageResizer
         arguments: [%thumb_size_height%, %thumb_size_width%]
@@ -18,5 +35,5 @@ services:
             - {name: doctrine.event_listener, event: prePersist, connection: default}
 
     imagine:
-        public: false
         class: Imagine\Imagick\Imagine
+        public: false
