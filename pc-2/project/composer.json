@@ -1,0 +1,8 @@
+{
+  "name": "andriy-mulik/blog",
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {"BionicUniversity\\": "src/"}
+  }
+}
