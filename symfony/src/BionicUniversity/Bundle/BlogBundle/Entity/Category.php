@@ -4,6 +4,8 @@ namespace BionicUniversity\Bundle\BlogBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Category
@@ -38,6 +40,10 @@ class Category
      */
     private $parent;
     private $children;
+    /**
+     * @var
+     * @ORM\Column(type="string")
+     */
     private $path;
     private $slug;
 

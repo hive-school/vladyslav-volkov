@@ -15,6 +15,9 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('age_from', 'text', [
+                'mapped' => false
+            ])
             ->add('name')
         ;
     }
