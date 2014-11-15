@@ -3,8 +3,11 @@
 $config = include('..' . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'config.dev.php');
 error_reporting($config['error_reporting']);
 ini_set('display_errors', 'On');
+set_include_path(get_include_path() . PATH_SEPARATOR . implode(PATH_SEPARATOR, [
+        __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'src',
+    ]));
 spl_autoload_register(function ($className) {
-    require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.php';
+    require_once str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.php';
 });
 
 $chunks = parse_url($_SERVER['REQUEST_URI']);
